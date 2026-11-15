@@ -1,0 +1,16 @@
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        
+        if len(s) != len(t):
+            return False
+        
+        hashCount = defaultdict(int)
+        for i, char in enumerate(s):
+            hashCount[s[i]] += 1
+            hashCount[t[i]] -= 1
+        
+        for val in hashCount.values():
+            if val != 0:
+                return False
+        
+        return True
